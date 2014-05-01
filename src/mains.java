@@ -9,6 +9,17 @@ public class mains
 
         TestGame.construct();
 
+        while(TestGame.isRunning())
+        {
+
+
+
+
+
+            TestGame.update();
+        }
+
+        TestGame.destroy();
 
     }
 

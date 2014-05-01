@@ -30,6 +30,9 @@ public class Display {
             e.printStackTrace();
         }
     }
+    public void destroy() {
+        org.lwjgl.opengl.Display.destroy();
+    }
     public void Update(int newWidth, int newHeight) {
         this.width = newWidth;
         this.height = newHeight;

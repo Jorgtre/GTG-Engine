@@ -15,7 +15,8 @@ public class FPSCounter {
         return(Sys.getTime() * 1000 / Sys.getTimerResolution());
     }
     public void update() {
-        if (getTime() - lastFPS > 1000) {
+        if (getTime() - lastFPS > 1000)
+        {
             fps = x;
             x = 0;
             lastFPS += 1000;

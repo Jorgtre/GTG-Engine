@@ -13,13 +13,12 @@ public class Display {
     private int height = 0;
     private int FPSCap = 0;
 
-    public Display(int w, int h)
-    {
+    public Display(int w, int h) {
         this.width = w;
         this.height = h;
+        construct();;
     }
-    public void Construct()
-    {
+    private void construct() {
         try
         {
             org.lwjgl.opengl.Display.setDisplayMode(new DisplayMode(this.width, this.height));
@@ -31,8 +30,7 @@ public class Display {
             e.printStackTrace();
         }
     }
-    public void Update(int newWidth, int newHeight)
-    {
+    public void Update(int newWidth, int newHeight) {
         this.width = newWidth;
         this.height = newHeight;
         glViewport( 0, 0, this.width, this.height );
@@ -44,12 +42,10 @@ public class Display {
         glMatrixMode(GL_MODELVIEW);
         glEnable(GL_TEXTURE_2D);
     }
-    public boolean isCloseRequested()
-    {
+    public boolean isCloseRequested() {
         return org.lwjgl.opengl.Display.isCloseRequested();
     }
-    public void update()
-    {
+    public void update() {
         org.lwjgl.opengl.Display.update();
         if (FPSCap > 0)
         {
@@ -58,8 +54,23 @@ public class Display {
     }
 
 
-
-
-
+    //####### Getters #######
+    public int getWidth()
+    {
+        return this.width;
+    }
+    public int getHeight()
+    {
+        return this.height;
+    }
+    public int getFPSCap()
+    {
+        return this.FPSCap;
+    }
+    //####### Setters #######
+    public void setFPSCap(int cap)
+    {
+        this.FPSCap = cap;
+    }
 
 }

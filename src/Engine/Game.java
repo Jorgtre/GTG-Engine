@@ -10,6 +10,7 @@ public class Game {
     {
 
     }
+
     public void construct()
     {
         window = new Display(800,600);

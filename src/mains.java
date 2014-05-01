@@ -1,21 +1,13 @@
 
-import Engine.Display;
+import Engine.Game;
 
 public class mains
 {
     public mains()
     {
-        Display window = new Display(800, 600);
+        Game TestGame = new Game();
 
-
-        window.Construct();
-
-        while (!window.isCloseRequested())
-        {
-
-
-            window.update();
-        }
+        TestGame.construct();
 
 
     }

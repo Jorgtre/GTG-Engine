@@ -23,6 +23,7 @@ public class FPSCounter {
         }
         x++;
     }
+
     public int getFps()
     {
         return fps;

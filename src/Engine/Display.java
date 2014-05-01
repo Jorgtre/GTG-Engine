@@ -16,7 +16,7 @@ public class Display {
     public Display(int w, int h) {
         this.width = w;
         this.height = h;
-        construct();;
+        construct();
     }
     private void construct() {
         try
@@ -33,17 +33,11 @@ public class Display {
     public void destroy() {
         org.lwjgl.opengl.Display.destroy();
     }
-    public void Update(int newWidth, int newHeight) {
+    public void resize(int newWidth, int newHeight) {
         this.width = newWidth;
         this.height = newHeight;
-        glViewport( 0, 0, this.width, this.height );
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
+        glViewport(0, 0, this.width, this.height);
         glOrtho(0, this.width, this.height , 0, 1, -1);
-        glMatrixMode(GL_MODELVIEW);
-        glEnable(GL_TEXTURE_2D);
     }
     public boolean isCloseRequested() {
         return org.lwjgl.opengl.Display.isCloseRequested();
@@ -51,6 +45,11 @@ public class Display {
     public void update() {
         org.lwjgl.opengl.Display.update();
         if (FPSCap > 0) { org.lwjgl.opengl.Display.sync(FPSCap); }
+        if (org.lwjgl.opengl.Display.wasResized())
+        {
+            this.resize(org.lwjgl.opengl.Display.getWidth() ,
+                        org.lwjgl.opengl.Display.getHeight());
+        }
     }
 
 

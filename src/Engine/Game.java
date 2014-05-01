@@ -4,7 +4,6 @@ package Engine;
 public class Game {
 
     private Display window = null;
-    private boolean keepRunning = true;
     private FPSCounter fpsCounter = null;
 
     public Game() {
@@ -21,11 +20,7 @@ public class Game {
 
 
     public boolean isRunning() {
-        if (keepRunning && !window.isCloseRequested())
-        {
-            return true;
-        }
-        return false;
+        return !window.isCloseRequested();
     }
     public void update() {
         window.update();

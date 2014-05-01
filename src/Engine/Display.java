@@ -50,10 +50,7 @@ public class Display {
     }
     public void update() {
         org.lwjgl.opengl.Display.update();
-        if (FPSCap > 0)
-        {
-            org.lwjgl.opengl.Display.sync(FPSCap);
-        }
+        if (FPSCap > 0) { org.lwjgl.opengl.Display.sync(FPSCap); }
     }
 
 
@@ -74,6 +71,9 @@ public class Display {
     public void setFPSCap(int cap)
     {
         this.FPSCap = cap;
+    }
+    public void setTitle(String title) {
+        org.lwjgl.opengl.Display.setTitle(title);
     }
 
 }

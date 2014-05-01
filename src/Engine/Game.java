@@ -27,10 +27,10 @@ public class Game {
         }
         return false;
     }
-    public void update()
-    {
+    public void update() {
         window.update();
         fpsCounter.update();
+        window.setTitle( "FPS: " + fpsCounter.getFps());
     }
 
 

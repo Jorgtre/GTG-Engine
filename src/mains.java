@@ -11,7 +11,7 @@ public class mains
 
         while(TestGame.isRunning())
         {
-
+            TestGame.clearDisplay();
 
 
 

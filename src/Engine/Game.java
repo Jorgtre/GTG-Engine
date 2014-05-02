@@ -12,10 +12,16 @@ public class Game {
 
     public void construct() {
         window = new Display(800,600);
+        window.initialize();
         fpsCounter = new FPSCounter();
     }
     public void destroy() {
         window.destroy();
+        fpsCounter = null;
+    }
+    public void clearDisplay()
+    {
+        window.clear();
     }
 
 

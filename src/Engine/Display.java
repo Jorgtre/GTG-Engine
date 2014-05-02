@@ -5,7 +5,6 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.DisplayMode;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 
 public class Display {
 
@@ -38,6 +37,20 @@ public class Display {
         this.height = newHeight;
         glViewport(0, 0, this.width, this.height);
         glOrtho(0, this.width, this.height , 0, 1, -1);
+    }
+    public void initialize(){
+        glViewport( 0 , 0 , this.width , this.height);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity(); // Resets any previous projection matrices
+        glOrtho(0,this.width , this.height, 0, 1, -1);
+        glMatrixMode(GL_MODELVIEW);
+        glEnable(GL_TEXTURE_2D);
+    }
+    public void clear()
+    {
+        glClear(GL_COLOR_BUFFER_BIT);
     }
     public boolean isCloseRequested() {
         return org.lwjgl.opengl.Display.isCloseRequested();
